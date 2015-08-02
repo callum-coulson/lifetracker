@@ -1,5 +1,6 @@
 angular.module('starter.services', [])
 
+
 .factory('Stats', function() {
   // Might use a resource here that returns a JSON array
 
@@ -7,28 +8,29 @@ angular.module('starter.services', [])
   var stats = [{
     id: 0,
     name: 'Steps Taken',
-    subtitle: 'How many steps taken'
+    subtitle: 'How many steps taken',
+    value:555
   }, {
     id: 1,
     name: 'Activity',
-    subtitle: 'How active you\'ve been'
+    subtitle: 'How active you\'ve been',
+    value:21
   }];
 
   return {
     all: function() {
       return stats;
     },
-  /*  remove: function(stat) {
+    remove: function(stat) {
       stats.splice(stats.indexOf(stat), 1);
-    },*/
+    },
     get: function(statID) {
-      stats.forEach(function(stat){
-        if (stat.id === parseInt(statID)) {
-          return stat;
-        }else{
-            return null;
+      for (var i = 0; i < stats.length; i++) {
+        if (stats[i].id === parseInt(statID)) {
+          return stats[i];
         }
-      });
+      }
+      return null;
     }
   }
 })

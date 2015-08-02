@@ -23,11 +23,11 @@ angular.module('starter.controllers', [])
 })
 
 .controller('StatDetailCtrl', function($scope, $stateParams, Stats) {
-  $scope.stat = Stats.get($stateParams.statId);
+  $scope.stat = Stats.get($stateParams.statID);
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+  $scope.chat = Chats.get($stateParams.chatID);
 })
 
 .controller('AccountCtrl', function($scope) {

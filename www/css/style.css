@@ -1,1 +1,12 @@
 /* Empty. Add your own CSS if you like */
+.bar.bar-stable{
+  background: #002933;
+}
+
+.bar.bar-stable .title{
+  color: #fff;
+}
+
+.scroll-content{
+  background: #002933;
+}
