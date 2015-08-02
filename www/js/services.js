@@ -7,7 +7,7 @@ angular.module('starter.services', [])
   var stats = [{
     id: 0,
     name: 'Steps Taken',
-    subtitle: 'How many Steps taken'
+    subtitle: 'How many steps taken'
   }, {
     id: 1,
     name: 'Activity',
@@ -23,14 +23,14 @@ angular.module('starter.services', [])
     },*/
     get: function(statID) {
       stats.forEach(function(stat){
-          if (stat.id === parseInt(statID)) {
-            return stat;
-          }
-        });
-      };
-      return null;
+        if (stat.id === parseInt(statID)) {
+          return stat;
+        }else{
+            return null;
+        }
+      });
     }
-  };
+  }
 })
 
 .factory('Chats', function() {
