@@ -1,0 +1,19 @@
+<ion-view view-title="Add a new stat">
+  <ion-content>
+      <form ng-submit="createStat(stat)">
+        <div class="padding">
+          <label class="item item-input">
+            <input type="text" placeholder="What are we tracking?" ng-model="stat.name">
+          </label>
+        </div>
+        <div class="padding">
+          <label class="item item-input">
+            <input type="text" placeholder="A description of the stat" ng-model="stat.subtitle">
+          </label>
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive">Create Stat</button>
+        </div>
+      </form>
+    </ion-content>
+</ion-view>

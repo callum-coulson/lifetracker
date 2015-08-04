@@ -24,13 +24,18 @@ angular.module('starter.services', [])
     remove: function(stat) {
       stats.splice(stats.indexOf(stat), 1);
     },
-    get: function(statID) {
-      for (var i = 0; i < stats.length; i++) {
-        if (stats[i].id === parseInt(statID)) {
-          return stats[i];
-        }
-      }
-      return null;
+    get:function(statID) {
+      // Look up the ID in stuff and either return that record or null
+      // This variable will be returned after the forEach loop. It is null incase the ID doesn't exist
+      var match = null;
+
+      // As stuff is an Array, use a standard Array.prototype.forEach loop
+      stats.forEach(function(stat) {
+        // Compare this record's ID with the id argument passed to the Stuff.id function
+        // If it matches, set the match variable to the entire record
+        if (stat.id == statID) match = stat;
+      });
+      return match;
     }
   }
 })

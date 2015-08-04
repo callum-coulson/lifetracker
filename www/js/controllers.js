@@ -26,6 +26,18 @@ angular.module('starter.controllers', [])
   $scope.stat = Stats.get($stateParams.statID);
 })
 
+.controller('NewStatCtrl', function($scope, Stats) {
+  $scope.createStat = function(stat) {
+    $scope.stats.push({
+      id: 2,
+      name: stat.name,
+      subtitle: stat.subtitle,
+      value: 0
+    });
+    stat.name = "";
+  };
+})
+
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatID);
 })
