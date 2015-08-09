@@ -26,6 +26,9 @@ angular.module('starter.controllers', [])
   $scope.stat = Stats.get($stateParams.statID);
 })
 
+
+
+
 .controller('NewStatCtrl', function($scope, Stats) {
   $scope.createStat = function(stat) {
     $scope.stats.push({

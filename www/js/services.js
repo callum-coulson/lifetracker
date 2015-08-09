@@ -2,21 +2,27 @@ angular.module('starter.services', [])
 
 
 .factory('Stats', function() {
-  // Might use a resource here that returns a JSON array
+  localStorage.clear();
+  //console.log(localStorage['stats'].toString());
 
-  // Some fake testing data
-  var stats = [{
-    id: 0,
-    name: 'Steps Taken',
-    subtitle: 'How many steps taken',
-    value:555
-  }, {
-    id: 1,
-    name: 'Activity',
-    subtitle: 'How active you\'ve been',
-    value:21
-  }];
+  if(!localStorage.getItem('stats')){
+    var tempstats = [{
+      id: 0,
+      name: 'Steps Taken',
+      subtitle: 'How many steps taken',
+      value:555
+    }, {
+      id: 1,
+      name: 'Activity',
+      subtitle: 'How active you\'ve been',
+      value:21
+    }];
+    console.log(tempstats);
+    window.localStorage['stats'] = tempstats;
+  }
 
+  var stats = window.localStorage['stats'].toString();
+  console.log(stats);
   return {
     all: function() {
       return stats;
@@ -34,6 +40,7 @@ angular.module('starter.services', [])
         // Compare this record's ID with the id argument passed to the Stuff.id function
         // If it matches, set the match variable to the entire record
         if (stat.id == statID) match = stat;
+        console.log(stat);
       });
       return match;
     }
