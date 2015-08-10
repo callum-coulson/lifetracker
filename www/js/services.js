@@ -2,8 +2,7 @@ angular.module('starter.services', [])
 
 
 .factory('Stats', function() {
-  localStorage.clear();
-  //console.log(localStorage['stats'].toString());
+  //localStorage.clear();
 
   if(!localStorage.getItem('stats')){
     var tempstats = [{
@@ -17,12 +16,16 @@ angular.module('starter.services', [])
       subtitle: 'How active you\'ve been',
       value:21
     }];
-    console.log(tempstats);
-    window.localStorage['stats'] = tempstats;
+
+
+    localStorage.setItem('stats',JSON.stringify(tempstats));
+
+
   }
 
-  var stats = window.localStorage['stats'].toString();
-  console.log(stats);
+  var stats = JSON.parse(localStorage.getItem('stats'));
+
+
   return {
     all: function() {
       return stats;
