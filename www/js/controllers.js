@@ -31,13 +31,7 @@ angular.module('starter.controllers', [])
 
 .controller('NewStatCtrl', function($scope, Stats) {
   $scope.createStat = function(stat) {
-    $scope.stats.push({
-      id: 2,
-      name: stat.name,
-      subtitle: stat.subtitle,
-      value: 0
-    });
-    stat.name = "";
+    Stats.createStat(stat);
   };
 })
 

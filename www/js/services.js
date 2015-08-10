@@ -2,7 +2,7 @@ angular.module('starter.services', [])
 
 
 .factory('Stats', function() {
-  //localStorage.clear();
+  localStorage.clear();
 
   if(!localStorage.getItem('stats')){
     var tempstats = [{
@@ -33,19 +33,20 @@ angular.module('starter.services', [])
     remove: function(stat) {
       stats.splice(stats.indexOf(stat), 1);
     },
-    get:function(statID) {
-      // Look up the ID in stuff and either return that record or null
-      // This variable will be returned after the forEach loop. It is null incase the ID doesn't exist
+    get: function(statID) {
       var match = null;
-
-      // As stuff is an Array, use a standard Array.prototype.forEach loop
       stats.forEach(function(stat) {
-        // Compare this record's ID with the id argument passed to the Stuff.id function
-        // If it matches, set the match variable to the entire record
         if (stat.id == statID) match = stat;
         console.log(stat);
       });
       return match;
+    },
+    createStat: function(stat) {
+      var newStat = { id:2,name:'test',subtitle:'test',value:21 };
+      console.log(newStat);
+      stats.push(newStat);
+      localStorage.setItem('stats',JSON.stringify(stats));
+      history.back(-1);
     }
   }
 })
