@@ -2,7 +2,7 @@ angular.module('starter.services', [])
 
 
 .factory('Stats', function() {
-  localStorage.clear();
+  //localStorage.clear();
 
   if(!localStorage.getItem('stats')){
     var tempstats = [{
@@ -32,6 +32,7 @@ angular.module('starter.services', [])
     },
     remove: function(stat) {
       stats.splice(stats.indexOf(stat), 1);
+      localStorage.setItem('stats',JSON.stringify(stats));
     },
     get: function(statID) {
       var match = null;
@@ -42,9 +43,10 @@ angular.module('starter.services', [])
       return match;
     },
     createStat: function(stat) {
-      var newStat = { id:2,name:'test',subtitle:'test',value:21 };
-      console.log(newStat);
+      var statsLength = stats.length + 1;
+      var newStat = { id:statsLength,name:stat.name,subtitle:stat.subtitle,value:null };
       stats.push(newStat);
+
       localStorage.setItem('stats',JSON.stringify(stats));
       history.back(-1);
     }
